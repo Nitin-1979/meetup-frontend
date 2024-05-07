@@ -1,5 +1,6 @@
 // import './App.css';
 import Button from '@mui/material/Button';
+import ApiService from '../../services/apiService';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 
@@ -8,7 +9,10 @@ function Login() {
   const [password, setPassword] = useState();
   const handleLoginClick = () =>{
     console.log(userName,password);
+    let url = ApiService("user","user","get");
+    console.log(url);
   }
+  
   return (
     <div className="App">
       <div>

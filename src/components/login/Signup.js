@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Select from 'react-select';
+import ApiService from '../../services/apiService';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -28,6 +29,14 @@ function SignUp() {
       const month = date.getMonth() + 1;
       const day = date.getDate();
       const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+      const reqBody={
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "password": password,
+        "dob": formattedDate,
+      }
+      ApiService("user","user","post",reqBody);
       console.log(firstName,lastName,email,password,formattedDate,perferences);
      
     }
