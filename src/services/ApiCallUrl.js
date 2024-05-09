@@ -1,5 +1,5 @@
 const baseUrl={
-    "user": "http://localhost:8080/api",
+    "user": "/api",
 }
 const endPointUrl={
     "user": "/users",
@@ -7,6 +7,6 @@ const endPointUrl={
 
 
 function ApiCallUrl(basePoint,endPoint) {
-    return baseUrl[basePoint]+ endPointUrl[endPoint]
+    return "http://localhost:8080" + baseUrl[basePoint]+ endPointUrl[endPoint]
 }
 export default ApiCallUrl;

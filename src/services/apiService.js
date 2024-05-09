@@ -1,10 +1,8 @@
 import ApiCallUrl from './ApiCallUrl';
 import axios from 'axios';
 
-const username = 'nitin@kumar';
-const password = 'nitin';
 
-async function ApiService(basePoint, endPoint, methodType, reqBody) {
+async function ApiService(basePoint, endPoint, methodType, reqBody, auth) {
     try {
         const response = await axios({
             url: ApiCallUrl(basePoint, endPoint),
@@ -14,11 +12,10 @@ async function ApiService(basePoint, endPoint, methodType, reqBody) {
             },
             data: reqBody,
             auth: {
-                username: username,
-                password: password
+                username: auth.username,
+                password: auth.password
             },
         });
-        console.log("response", response);
         return response;
     } catch (error) {
         console.error(error);
