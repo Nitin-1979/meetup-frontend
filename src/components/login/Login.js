@@ -15,7 +15,7 @@ function Login() {
   async function fetchData() {
     try {
         let auth={username: userName, password: password}
-        let res = await ApiService("user", "user", "get", {}, auth);
+        let res = await ApiService("user", "login", "get", {}, auth);
         response = res;
         response.statusCode =  res.status;
         response.data =  res.data;

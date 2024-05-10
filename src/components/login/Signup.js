@@ -36,7 +36,7 @@ function SignUp() {
         "password": password,
         "dob": formattedDate,
       }
-      ApiService("user","user","post",reqBody);
+      ApiService("user","signup","post",reqBody,{});
       console.log(firstName,lastName,email,password,formattedDate,perferences);
      
     }

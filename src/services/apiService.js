@@ -4,18 +4,23 @@ import axios from 'axios';
 
 async function ApiService(basePoint, endPoint, methodType, reqBody, auth) {
     try {
-        const response = await axios({
+        const axiosConfig = {
             url: ApiCallUrl(basePoint, endPoint),
             method: methodType,
             headers: {
                 'Content-Type': 'application/json'
             },
             data: reqBody,
-            auth: {
+        };
+
+        if (auth && auth.username && auth.password) {
+            axiosConfig.auth = {
                 username: auth.username,
                 password: auth.password
-            },
-        });
+            };
+        }
+
+        const response = await axios(axiosConfig);
         return response;
     } catch (error) {
         console.error(error);

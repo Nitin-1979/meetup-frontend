@@ -2,7 +2,8 @@ const baseUrl={
     "user": "/api",
 }
 const endPointUrl={
-    "user": "/users",
+    "login": "/login",
+    "signup": "/signup"
 }
 
 
